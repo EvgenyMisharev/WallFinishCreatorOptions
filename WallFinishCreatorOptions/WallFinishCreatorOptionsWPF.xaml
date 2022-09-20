@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WallFinishCreatorOptions"
              mc:Ignorable="d" 
-             Title="Настройки отделки стен" Height="160" Width="400" 
+             Title="Свойства отделки стен" Height="160" Width="400" 
              MinHeight="160" MinWidth="400" MaxHeight="160" MaxWidth="400"
              WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" KeyDown="WallFinishCreatorOptionsWPF_KeyDown">
     <Grid>
