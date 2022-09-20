@@ -26,7 +26,6 @@ namespace WallFinishCreatorOptions
                         .Children.OfType<RadioButton>()
                         .FirstOrDefault(rb => rb.Name == "rbt_ByLinkedFile").IsChecked = true;
                 }
-                
             }
         }
         private void btn_Ok_Click(object sender, RoutedEventArgs e)
