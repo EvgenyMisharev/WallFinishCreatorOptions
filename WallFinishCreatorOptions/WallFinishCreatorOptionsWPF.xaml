@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              Title="Свойства отделки стен" Height="160" Width="400" 
              MinHeight="160" MinWidth="400" MaxHeight="160" MaxWidth="400"
-             WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" KeyDown="WallFinishCreatorOptionsWPF_KeyDown">
+             WindowStyle="SingleBorderWindow" ResizeMode="NoResize" Icon="Resources/citrus.ico" WindowStartupLocation="CenterScreen" KeyDown="WallFinishCreatorOptionsWPF_KeyDown">
     <Grid>
         <GroupBox x:Name="groupBox_FloorCreationOption" Header="Выберите опцию:" Margin="10,10,10,45">
             <Grid>
