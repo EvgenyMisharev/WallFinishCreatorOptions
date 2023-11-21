@@ -14,7 +14,7 @@ namespace WallFinishCreatorOptions
             WallFinishCreatorOptionsSettingsParam = WallFinishCreatorOptionsSettings.GetSettings();
             if (WallFinishCreatorOptionsSettingsParam.FloorCreationOptionValue != null)
             {
-                if(WallFinishCreatorOptionsSettingsParam.FloorCreationOptionValue == "rbt_ByCurrentFile")
+                if (WallFinishCreatorOptionsSettingsParam.FloorCreationOptionValue == "rbt_ByCurrentFile")
                 {
                     (groupBox_FloorCreationOption.Content as System.Windows.Controls.Grid)
                     .Children.OfType<RadioButton>()
