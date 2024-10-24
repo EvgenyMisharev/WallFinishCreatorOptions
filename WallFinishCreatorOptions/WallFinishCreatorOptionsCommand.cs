@@ -3,6 +3,7 @@ using Autodesk.Revit.UI;
 using System;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace WallFinishCreatorOptions
 {
@@ -13,7 +14,7 @@ namespace WallFinishCreatorOptions
         {
             try
             {
-                GetPluginStartInfo();
+                _ = GetPluginStartInfo();
             }
             catch { }
 
@@ -25,7 +26,7 @@ namespace WallFinishCreatorOptions
             }
             return Result.Succeeded;
         }
-        private static void GetPluginStartInfo()
+        private static async Task GetPluginStartInfo()
         {
             // Получаем сборку, в которой выполняется текущий код
             Assembly thisAssembly = Assembly.GetExecutingAssembly();
@@ -38,12 +39,21 @@ namespace WallFinishCreatorOptions
 
             Assembly assembly = Assembly.LoadFrom(dllPath);
             Type type = assembly.GetType("PluginInfoCollector.InfoCollector");
-            var constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
 
             if (type != null)
             {
                 // Создание экземпляра класса
-                object instance = Activator.CreateInstance(type, new object[] { assemblyName, assemblyNameRus });
+                object instance = Activator.CreateInstance(type);
+
+                // Получение метода CollectPluginUsageAsync
+                var method = type.GetMethod("CollectPluginUsageAsync");
+
+                if (method != null)
+                {
+                    // Вызов асинхронного метода через reflection
+                    Task task = (Task)method.Invoke(instance, new object[] { assemblyName, assemblyNameRus });
+                    await task;  // Ожидание завершения асинхронного метода
+                }
             }
         }
     }
